@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/repo
+    ports:
+      - "8081:8081"
