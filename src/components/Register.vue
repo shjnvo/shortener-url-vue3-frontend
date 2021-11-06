@@ -66,7 +66,7 @@ export default {
       name: yup
         .string()
         .required("name is required!")
-        .min(5, "Must be at least 3 characters!")
+        .min(5, "Must be at least 5 characters!")
         .max(20, "Must be maximum 20 characters!"),
       email: yup
         .string()
@@ -108,9 +108,10 @@ export default {
           this.message = data.message;
           this.successful = true;
           this.loading = false;
+          this.$router.push("/login");
         },
         (error) => {
-          this.message = error.message;
+          this.message = error.response.data.message;
           this.successful = false;
           this.loading = false;
         }
